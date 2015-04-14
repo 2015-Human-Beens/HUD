@@ -5,24 +5,14 @@
  */
 package hud;
 
-import java.awt.Graphics;
-import java.awt.Point;
+import java.awt.Color;
 
 /**
  *
  * @author david
  */
-class TextBox {
-    public TextBox(Point position){
-        this.position = position;
-    }
-    
-    private Point position;
-    
-    
-
-    void paint(Graphics graphics) {
-
-    }
+public class ProjectColors {
+    public static Color HUD_BLUE = new Color(0, 230, 220);
+    public static Color HUD_GREY = new Color(80, 80, 80);
     
 }

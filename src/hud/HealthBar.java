@@ -22,16 +22,17 @@ public class HealthBar {
     
     private HealthProviderIntf healthProvider;
     private Point position;
-    private Color HUDBLUE = new Color(0, 230, 220);
-    private Color HUDGREY = new Color(80, 80, 80);
+    private Color healthColor = ProjectColors.HUD_BLUE;
+    private Color healthBackgroundColor = ProjectColors.HUD_GREY;
+
     
     public void paint(Graphics graphics){
         //draw...
         if (healthProvider != null){
-            graphics.setColor(Color.gray);
+            graphics.setColor(healthBackgroundColor);
             graphics.fill3DRect(position.x, position.y, healthProvider.getMaxHealth(), 20, true);
 
-            graphics.setColor(HUDBLUE);
+            graphics.setColor(healthColor);
             graphics.fill3DRect(position.x, position.y, healthProvider.getHealth(), 20, true);
         }
         

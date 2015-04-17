@@ -6,10 +6,14 @@
 package hud;
 
 import environment.Environment;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import javax.swing.JPanel;
 
 /**
  *
@@ -21,10 +25,29 @@ class HUDEnvironment extends Environment implements HealthProviderIntf {
     
     private HealthBar myHealthBar;
     private TextBox myTextBox;
+    private JPanel pnl, contentPanel;
+    
 
     @Override
     public void initializeEnvironment() {
-        myHealthBar = new HealthBar(this, new Point(100, 100));
+//        this.setLayout(new );
+        setLayout(new BorderLayout());
+//        contentPanel = new JPanel();
+//        contentPanel.setBackground(Color.red);
+//        this.add(contentPanel);
+        
+//        setContentPane(contentPanel);
+        
+        myHealthBar = new HealthBar(this, new Point(10, 400));
+        
+        JPanel pnl = new JPanel();
+        pnl.setLocation(new Point(400, 400));
+        pnl.setBackground(Color.red);
+        pnl.setSize(new Dimension(300, 300));
+        this.add(pnl);
+        
+        myTextBox = new TextBox(new Point(200, 200), new Dimension(300, 200));
+        myTextBox.append("This is a test of the NA Early Warning System...");
     }
 
     @Override
@@ -39,8 +62,6 @@ class HUDEnvironment extends Environment implements HealthProviderIntf {
         } else if (e.getKeyCode() == KeyEvent.VK_MINUS){
             health--;
         }
-        
-       
     }
 
     @Override
@@ -61,7 +82,6 @@ class HUDEnvironment extends Environment implements HealthProviderIntf {
         
         if (myTextBox !=null){
             myTextBox.paint(graphics);
-        
         }
         
     }

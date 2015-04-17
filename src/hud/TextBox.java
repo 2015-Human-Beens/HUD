@@ -5,24 +5,39 @@
  */
 package hud;
 
+import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Point;
+import javax.swing.JTextArea;
 
 /**
  *
  * @author david
  */
-class TextBox {
-    public TextBox(Point position){
-        this.position = position;
+class TextBox extends JTextArea {
+    public static Font STENCIL = new Font("Stencil", Font.BOLD, 16);
+    
+    {
+        setBackground(ProjectColors.HUD_GREY);
+        setForeground(ProjectColors.HUD_BLUE);
+        setFont(STENCIL);
+        this.setLineWrap(true);
     }
     
-    private Point position;
     
+    public TextBox(Point location){
+        setLocation(location);
+    }
     
-
-    void paint(Graphics graphics) {
-
+    public TextBox(Point location, Dimension size){
+        setLocation(location);
+        setSize(size);
+    }
+    
+    @Override
+    public void paint(Graphics graphics) {
+        super.paint(graphics);
     }
     
 }

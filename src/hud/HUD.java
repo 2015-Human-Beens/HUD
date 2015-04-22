@@ -24,6 +24,7 @@ public class HUD {
     
     private static void startWindow() {
         ApplicationStarter.run("HUD", new HUDEnvironment());
+//        ApplicationStarter.run("HUD", new HUDTestEnvironment());
     }
     
 }
